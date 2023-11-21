@@ -1,0 +1,25 @@
+bug id,rating,category,name
+1,6,scary,Jasper
+8,7,scary,Jasper
+12,5,scary,Jasper
+15,7,scary,Jasper
+19,6,scary,Jasper
+23,6,scary,Jasper
+6,5,cute,Jasper
+10,4,cute,Jasper
+14,6,cute,Jasper
+16,6,cute,Jasper
+31,4,cute,Jasper
+32,3,cute,Jasper
+1,4,scary,Alissa
+8,6,scary,Alissa
+12,1,scary,Alissa
+15,7,scary,Alissa
+19,5,scary,Alissa
+23,7,scary,Alissa
+6,4,cute,Alissa
+10,2,cute,Alissa
+14,7,cute,Alissa
+16,6,cute,Alissa
+31,5,cute,Alissa
+32,2,cute,Alissa
