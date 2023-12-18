@@ -14,8 +14,8 @@ from skopt.utils import use_named_args
 from utils import process_images, user_cluster_labels
 
 username = 'Jasper'
-n_clusters = 7
-plot_clusters = False
+n_clusters = 9
+plot_clusters = True
 optimize = False
 
 if username == 'Jasper':
@@ -38,6 +38,7 @@ avg_scary = np.mean(scary, axis=0)
 # higher cute and higher scary means more likely to be colors
 
 shape_weight, color_weight, binary_weight = sample[0], sample[1], sample[2]
+# shape_weight, color_weight, binary_weight = 0.0, 1.0, 0
 image_dir = 'index/'
 image_paths = [os.path.join(image_dir, f) for f in os.listdir(image_dir) if f.endswith('.png')]
 image_paths.sort(key=lambda x: int(x.split('/')[-1].split('.')[0]))

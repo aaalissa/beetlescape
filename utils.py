@@ -5,7 +5,7 @@ import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import MinMaxScaler
-
+import os
 
 def normalize_filled(image_path, size=(150, 150)):
     # Read the image with alpha channel
@@ -46,7 +46,9 @@ def extract_colors(image_path, num_colors=1):
         pixels = image[mask][:, :3]
 
         # Convert RGB to HSV
-        pixels = cv2.cvtColor(pixels.reshape(-1, 1, 3), cv2.COLOR_RGB2HSV).reshape(-1, 3)
+        # pixels = cv2.cvtColor(pixels.reshape(-1, 1, 3), cv2.COLOR_RGB2HSV).reshape(-1, 3)
+        #convert RGB to Lab
+        pixels = cv2.cvtColor(pixels.reshape(-1, 1, 3), cv2.COLOR_RGB2Lab).reshape(-1, 3)
     else:
         raise ValueError("Unexpected number of channels in image")
 
@@ -134,3 +136,16 @@ def user_cluster_labels(username, k, plot=True, random_state=0):
                     plt.annotate(f"id: {label}, {category}: {rating}", (user_coords[i, 0], user_coords[i, 1]))
 
     return labels
+
+
+def get_image_paths(directory='index'):
+    """
+    get all images paths in a directory and returns them in a sorted list
+    """
+    image_paths = []
+    for filename in os.listdir(directory):
+        if filename.endswith("png"):
+            image_paths.append(os.path.join(directory, filename))
+    
+    image_paths.sort()
+    return image_paths

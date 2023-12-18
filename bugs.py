@@ -50,7 +50,7 @@ def resize_image(image_path, scale_factor):
     new_width = int(width * scale_factor)
     new_height = int(height * scale_factor)
     # Resize the image
-    resized_img = img.resize((new_width, new_height), Image.ANTIALIAS)
+    resized_img = img.resize((new_width, new_height))
     return ImageTk.PhotoImage(resized_img)
 
 def submit_name():
@@ -68,7 +68,7 @@ def open_scary_rating_window(symbol):
     rating_window.title(f"How Scary is this Bug?")
 
     # Display the symbol image
-    symbol_image = ImageTk.PhotoImage(Image.open(symbol['image_path']), Image.ANTIALIAS)  # Resize as needed
+    symbol_image = ImageTk.PhotoImage(Image.open(symbol['image_path']))  # Resize as needed
     symbol_label = tk.Label(rating_window, image=symbol_image)
     symbol_label.image = symbol_image  # Keep a reference to prevent garbage collection
     symbol_label.pack()
@@ -102,7 +102,7 @@ def open_cute_rating_window(symbol):
     rating_window.title(f"How Cute is this Bug?")
 
     # Display the symbol image
-    symbol_image = ImageTk.PhotoImage(Image.open(symbol['image_path']), Image.ANTIALIAS)  # Resize as needed
+    symbol_image = ImageTk.PhotoImage(Image.open(symbol['image_path']))  # Resize as needed
     symbol_label = tk.Label(rating_window, image=symbol_image)
     symbol_label.image = symbol_image  # Keep a reference to prevent garbage collection
     symbol_label.pack()
@@ -227,6 +227,7 @@ symbols = [
     {'id': 31, 'coords': (875, 600), 'image_path': 'index/31.png'},
     {'id': 32, 'coords': (1000, 600), 'image_path': 'index/32.png'}
 ]
+
 
 scary_bugs_ids = [1, 8, 19, 23, 12, 15]
 cute_bugs_ids = [32, 10, 16, 31, 6, 14]
